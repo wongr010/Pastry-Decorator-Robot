@@ -1,0 +1,11 @@
+.equ LEGO, 0xff200060
+.equ C, 0x21
+.equ S, 0x1B
+
+.global _start
+_start:
+
+	movia r7, LEGO
+	ldwio r6, 0(r7)
+	andi r6, r6, 0xFFFBFFFF #set bit 18 to 0 - enable sensor 4
+	stwio r6, 0(r7)
